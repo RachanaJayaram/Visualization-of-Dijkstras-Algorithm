@@ -1,10 +1,10 @@
 console.log(result);
-console.log(input);
+console.log(input_graph);
 
 var i,
     s,
-    N = input[0][1],
-    E = input[0][0],
+    N = input_graph[0][1],
+    E = input_graph[0][0],
     g = {
       nodes: [],
       edges: []
@@ -13,34 +13,41 @@ var i,
 for (i = 0; i < N; i++)
   g.nodes.push({
     id: 'n' + i,
-    label: 'Node ' + i,
+    label: ''+i,
+    size: "15",
     x: Math.random(),
     y: Math.random(),
-    size: "10",
-    color: '#666'
+    color: '#444'
   });
-for (i = 0; i < E; i++)
+for (i = 1; i < input_graph.length; i++)
+{
+  console.log('n'+input_graph[i][0])
   g.edges.push({
     id: 'e' + i,
-    source: 'n' + (Math.random() * N | 0),
-    target: 'n' + (Math.random() * N | 0),
-    size: "3",
+    source: 'n'+input_graph[i][0],
+    target: 'n'+input_graph[i][1],
+    size: "4",
     length:"1",
+    label: ''+input_graph[i][2],
     type:"arrow",
-    color: '#ccc'
+    color: "rgb(118, 182, 255)"
   });
+}  
 // sigma.renderers.def = sigma.renderers.canvas
 // Instantiate sigma:
 
 
 s = new sigma({
   graph: g,
-  container: 'graph-container',
+  renderer: {
+    container: document.getElementById('graph-container'),
+    type: sigma.renderers.canvas,
+},
   settings:
   {
-    maxEdgeSize: 3,
+    maxEdgeSize: 4,
     maxNodeSize: 10,
-    minEdgeSize: 3,
+    minEdgeSize: 4,
     minNodeSize: 10,
   }
 });

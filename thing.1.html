@@ -89,7 +89,7 @@ for (i = 0; i < N; i++)
     label: 'Node ' + i,
     x: Math.random(),
     y: Math.random(),
-    size: "10",
+    size: "14",
     color: '#666'
   });
 for (i = 0; i < E; i++)
@@ -100,7 +100,7 @@ for (i = 0; i < E; i++)
     size: "3",
     length:"1",
     type:"arrow",
-    color: '#ccc'
+    color: ""
   });
 // sigma.renderers.def = sigma.renderers.canvas
 // Instantiate sigma:
@@ -110,9 +110,9 @@ s = new sigma({
   settings:
   {
     maxEdgeSize: 3,
-    maxNodeSize: 10,
+    maxNodeSize: 15,
     minEdgeSize: 3,
-    minNodeSize: 10,
+    minNodeSize: 15,
   }
 });
 // Initialize the dragNodes plugin:
