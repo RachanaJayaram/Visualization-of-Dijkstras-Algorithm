@@ -4,12 +4,13 @@ import priority_queue
 graph=graph.graph
 
 def result():
-    input_graph=[]
     file_inp=open("in.in","r")
     vert_edge=file_inp.readline().split()
     n_vertices=int(vert_edge[0])
     n_edges=int(vert_edge[1])
     network=graph(n_vertices,n_edges)
+    input_graph=[[n_edges,n_vertices]]
+
     for _ in range(n_edges):
         inp=file_inp.readline().split()
         from_edge=inp[0]

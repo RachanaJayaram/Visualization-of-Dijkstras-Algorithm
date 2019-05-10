@@ -1,10 +1,10 @@
-/**
- * This example shows how to use the dragNodes plugin.
- */
+console.log(result);
+console.log(input);
+
 var i,
     s,
-    N = 10,
-    E = 5,
+    N = input[0][1],
+    E = input[0][0],
     g = {
       nodes: [],
       edges: []
@@ -32,8 +32,7 @@ for (i = 0; i < E; i++)
 // sigma.renderers.def = sigma.renderers.canvas
 // Instantiate sigma:
 
-alert(result);
-alert(input)
+
 s = new sigma({
   graph: g,
   container: 'graph-container',
