@@ -75,7 +75,7 @@ def dijkstra(graph,queue):
           for key in step.keys():
                if step[key]==None:
                     step[key]=''
-          print(step["dist"],step["adj_node"],step["old_dist"],step["dist_with"],step["new_dist"])
+          print(step)
      return(dist,previous,steps)
                     
 
