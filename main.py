@@ -3,8 +3,8 @@ from dijkstras import dijkstra
 import priority_queue
 graph=graph.graph
 
-def result():
-    file_inp=open("in.in","r")
+def result( input_):
+    file_inp=open(input_,"r")
     vert_edge=file_inp.readline().split()
     n_vertices=int(vert_edge[0])
     n_edges=int(vert_edge[1])

@@ -6,7 +6,7 @@ class priority_queue:
         self.queue.append((distance,vertex))
         self.length+=1
         if self.length>1:
-            for i in range(self.length//2-1,-1,-1):
+            for i in range(self.length//2,-1,-1):
                 self.heapify(i)
         
     def remove(self):

@@ -1,3 +1,19 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+  </head>
+  <body style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;font-size:16px">
+
+
 <!-- START SIGMA IMPORTS -->
 <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/src/sigma.core.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/src/conrad.js"></script>
@@ -51,6 +67,15 @@
 <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/plugins/sigma.renderers.edgeLabels/sigma.canvas.edges.labels.curvedArrow.js"></script>
 <!-- END SIGMA IMPORTS -->
 <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/plugins/sigma.plugins.dragNodes/sigma.plugins.dragNodes.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/plugins/sigma.renderers.customEdgeShapes/sigma.canvas.edges.dashed.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/plugins/sigma.renderers.customEdgeShapes/sigma.canvas.edges.dotted.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/plugins/sigma.renderers.customEdgeShapes/sigma.canvas.edges.parallel.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/plugins/sigma.renderers.customEdgeShapes/sigma.canvas.edges.tapered.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/plugins/sigma.renderers.customEdgeShapes/sigma.canvas.edgehovers.dashed.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/plugins/sigma.renderers.customEdgeShapes/sigma.canvas.edgehovers.dotted.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/plugins/sigma.renderers.customEdgeShapes/sigma.canvas.edgehovers.parallel.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/plugins/sigma.renderers.customEdgeShapes/sigma.canvas.edgehovers.tapered.js"></script>
+</div>
 <div id="container">
   <style>
     #graph-container {
@@ -61,19 +86,105 @@
       position: absolute;
     }
     #sidebar {
-      bottom: 0;
-      right: 0;
-      width: 200px;
-      height: 150px;
-      position: absolute;
-      background-color: #999;
-      padding: 10px;
+ 
+      background-color: rgb(255, 255, 255);
+      width:250px;
+      top:0px;
+      margin: 0px!important;
+      padding:10px;
     }
+    div{
+      margin: 4px;
+    
+    }
+    #next
+{   
+    position: fixed;
+    bottom: 4px;
+    padding: 15px;
+    margin: 5px;
+    background-color: rgb(52, 52, 214);
+    border:0px;
+    border-radius: 3px;
+    color: white;
+    font-size: 15px;
+    box-shadow: 3px 3px 3px 0 rgba(0,0,0,0.2);
+    transition-duration: 0.5s;
+
+
+
+}
+
+button
+{
+  background-color: rgb(52, 52, 214)!important;
+  border:0px;
+  margin: 1px;
+  border-radius: 3px;
+  padding: 5px;
+  padding-left:8px;
+  padding-right:8px;
+  font-size: 14px;
+  color: white;
+
+}
+  #next.hover
+{
+    background-color: rgb(40, 40, 180);
+    width: fit-content!important;
+
+    box-shadow: 0px 0px 0px 0 rgba(252, 252, 252, 0.2);
+}
   </style>
-  <div id="graph-container"></div>
+  <div id="sidebar">     
+  <div id="queue">
+      <h4>Queue</h4>
+      <div id="draw_queue">
+      </div>
+  </div>  
+ 
+  <div id="Distances"  >
+
+      <h4>Distances</h4>
+      <div id="draw_dist_0">
+
+      </div>
+      <div id="draw_dist_1">
+
+      </div>
+  </div>
+  <div id="settled">
+    <h4>Settled</h4>
+    <div id="draw_settled">
+    </div>
+  </div>  
+  <div id="Node" >
+    <h4>Node Under Consideration </h4>
+    <div id="draw_node">
+    </div>
+</div>  
+  <div id="current_Node" >
+    
+    <div id="draw_current_node">
+    </div>
+</div>  
+
+
+  <div id="graph-container" style="left:250px;position: absolute;"></div>
 </div>
+</div>
+
+
 <script>
-    result={{result|tojson|safe}}
-    input_graph={{input_graph|tojson|safe}}
+    result={{result|tojson|safe}} ;
+    input_graph={{input_graph|tojson|safe}} ;
+    step_no=0;
+    old_adj_node=-1;
 </script>
+
 <script src="{{url_for('static', filename='Dijkstras.js')}}"></script>
+<div>
+  <button id="next" onclick="func()" style="bottom:20px;right:20px;position: absolute;">Next</button>
+</div>
+</body>
+</html>
