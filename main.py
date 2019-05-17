@@ -1,6 +1,6 @@
 import graph
 from dijkstras import dijkstra
-import priority_queue1
+import priority_queue
 graph=graph.graph
 
 def result( input_):
@@ -23,7 +23,7 @@ def result( input_):
     source_router=source_dest[0]
     destination_router=source_dest[1]
     network.set_source_dest(source_router,destination_router)
-    queue=priority_queue1.priority_queue()
+    queue=priority_queue.priority_queue()
 
     dist,prev,steps =dijkstra(network,queue)
     # print(steps)
