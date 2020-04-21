@@ -5,7 +5,7 @@
 Dijkstra's algorithm is used to find the shortest path from a single source vertex to all other vertices in a given graph.
 <br>
 <br>
-This is a teaching tool that is used for easily visualization of Dijkstra's algorithm implemented using the Sigma JS library for graph drawing. 
+This is a teaching tool that is used for easy visualization of Dijkstra's algorithm implemented using the Sigma JS library for graph drawing. 
 <br> 
 Run 
 <code> python server.py </code> to start the applicaton. /Dijkstras1 is the flask endpoint for visualization of example 1 (in.in), /Dijkstras2 is the endpoint for visualization of example 2 (in1.in).
